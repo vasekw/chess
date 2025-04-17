@@ -1,4 +1,4 @@
-from src.__main__ import main
+from granular_test.app import main
 
 def test_main(capsys):
     main()

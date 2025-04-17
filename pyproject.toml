@@ -11,7 +11,6 @@ dependencies = [
     "pydantic (>=2.11.3,<3.0.0)"
 ]
 
-
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -19,3 +18,14 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.poetry]
+package-mode = false
+packages = [
+    { include = "granular_test", from = "src" }
+]
+
+[tool.poetry.scripts]
+service = "granular_test.__main__:main"
