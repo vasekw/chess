@@ -10,8 +10,8 @@ poetry install
 ### Importing from the package
 After installing the package with `poetry install`, you can import its modules in your Python code as follows:
 ```python
-from chess.models.board import Board
-from chess.pieces.bishop import Bishop
+from chess.models import Board
+from chess.pieces import Bishop
 ```
 
 If you're running scripts or using an interactive shell within the project directory, make sure you're using the poetry-managed environment:
@@ -21,10 +21,9 @@ poetry run python
 
 Then you can import and use the package like normal. For example:
 ```python
-from chess.models.board import Board
-from chess.pieces.knight import Knight
-from chess.models.position import Position
-from chess.constants.enums import Player
+from chess.models import Board, Position
+from chess.pieces import Knight
+from chess.constants import Player
 
 board = Board()
 position = Position(1,1)
