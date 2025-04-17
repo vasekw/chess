@@ -10,5 +10,6 @@ poetry install
 ### Testing
 To run the tests, run the following from the root directory
 ```bash
-poetry run pytest
+poetry run pytest --cov=chess --cov-report=term
+
 ```

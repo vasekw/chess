@@ -4,7 +4,6 @@ from chess.models.position import Position
 from chess.constants.enums import Player
 from chess.pieces.bishop import Bishop
 
-
 @pytest.fixture
 def board_with_bishop():
     board = Board()
@@ -13,28 +12,25 @@ def board_with_bishop():
     board.add_piece(bishop)
     return board, bishop
 
-
 @pytest.mark.parametrize("target_pos", [
     Position(1, 1),  # diagonal down-left
     Position(5, 5),  # diagonal up-right
     Position(1, 5),  # diagonal up-left
-    Position(5, 1)  # diagonal down-right
+    Position(5, 1)   # diagonal down-right
 ])
 def test_valid_moves(board_with_bishop, target_pos):
     board, bishop = board_with_bishop
     assert bishop.can_move_to(board, target_pos)
 
-
 @pytest.mark.parametrize("target_pos", [
     Position(3, 5),  # vertical
     Position(5, 3),  # horizontal
-    Position(4, 2),  # non-diagonal
-    Position(8, 8)  # off board
+    Position(6, 4),  # non-diagonal
+    Position(8, 8)   # off board
 ])
 def test_invalid_moves(board_with_bishop, target_pos):
     board, bishop = board_with_bishop
     assert not bishop.can_move_to(board, target_pos)
-
 
 def test_blocked_moves(board_with_bishop):
     board, bishop = board_with_bishop
@@ -47,7 +43,6 @@ def test_blocked_moves(board_with_bishop):
     # Try to move past blocking piece
     target_pos = Position(5, 5)
     assert not bishop.can_move_to(board, target_pos)
-
 
 def test_capture_moves(board_with_bishop):
     board, bishop = board_with_bishop

@@ -19,7 +19,7 @@ class Bishop(Piece):
             return False
 
         path = self._get_path_positions(target)
-        for pos in path[:-1]:
+        for pos in path:  # Check all positions except the target
             if board.get_piece_at(pos) is not None:
                 return False
 
@@ -33,10 +33,9 @@ class Bishop(Piece):
         current_x = self.position.x + dx
         current_y = self.position.y + dy
 
-        while current_x != target.x or current_y != target.y:
+        while current_x != target.x and current_y != target.y:
             positions.append(Position(current_x, current_y))
             current_x += dx
             current_y += dy
 
-        positions.append(target)
         return positions
