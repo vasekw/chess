@@ -1,14 +1,10 @@
-## Instructions
+## Chess Package
+A Python package implementing chess game logic, providing components for building chess applications.
 
 ### Setup
-This project uses `poetry` for dependency management. To set up the correct environment, run the following from the root directory:
+This package uses `poetry` for dependency management. To set up the correct environment, run the following from the root directory:
 ```bash
 poetry install
-```
-
-### Running the service
-```bash
-poetry run python -m granular_test
 ```
 
 ### Testing
