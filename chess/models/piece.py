@@ -21,3 +21,11 @@ class Piece(ABC):
             return False
 
         return True
+
+    def valid_moves(self, board: 'Board') -> list[Position]:
+        return [
+            Position(x,y)
+            for x in range(0,8)
+            for y in range(0,8)
+            if self.can_move_to(board, Position(x,y))
+        ]
